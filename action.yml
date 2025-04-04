@@ -1,15 +1,14 @@
 # action.yml
-name: 'MCF to ISO'
-description: 'action converts contents of a folder in repository to ISO metadata'
+name: 'ttl to html'
+description: 'The action converts contents of a ttl file into html using widoco'
 inputs:
-  folder-input:  # id of input
-    description: 'Folder to process'
+  file-input:  # id of input
+    description: 'File to process'
     required: true
-    default: '.'
-  folder-output:  # id of input
-    description: 'Folder to export to'
-    required: true
-    default: 'export'
+  options:  # id of input
+    description: 'Processing options'
+    required: false
+    default: ''
 outputs:
   status: # id of output
     description: 'Status'
@@ -17,5 +16,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.folder-input }}
-    - ${{ inputs.folder-output }}
+    - ${{ inputs.file-input }}
+    - ${{ inputs.options }}
