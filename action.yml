@@ -5,6 +5,9 @@ inputs:
   file-input:  # id of input
     description: 'File to process'
     required: true
+  folder-output:  # id of input
+    description: 'Folder for output'
+    required: true
   options:  # id of input
     description: 'Processing options'
     required: false
@@ -17,4 +20,5 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.file-input }}
+    - ${{ inputs.folder-output}}
     - ${{ inputs.options }}

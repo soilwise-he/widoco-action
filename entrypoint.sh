@@ -1,9 +1,9 @@
 #!/bin/sh -l
 
-echo "Processing $1 with options $2"
+echo "Processing $1 to $2 with options $3"
 
 cd /usr/local/widoco
 
-${JAVA_HOME}/bin/java -jar widoco.jar -ontFile /tmp/gha/$1 -outFolder /tmp/gha/out -rewriteAll -uniteSections  $2
+${JAVA_HOME}/bin/java -jar widoco.jar -ontFile $1 -outFolder $2 -rewriteAll -uniteSections  $3
 
 
