@@ -11,20 +11,13 @@ A github action to build docs for a knowledge graph, using [widoco](https://gith
 # An example of how to use your action in a workflow.
 
 ```
-name: mcf to iso
-
-on:
-  - push
-  - delete
-
 jobs:
   widoco:
     runs-on: ubuntu-latest
     name: A conversion of ttl to html
     steps:
       - name: convert
-        id: convert
-        uses: soilwise-he/widoco-action@v0.1
+        uses: soilwise-he/widoco-action@v0.3
         with:
           file-input: '/github/workspace/example.ttl'
           folder-output: '/github/workspace/public'
