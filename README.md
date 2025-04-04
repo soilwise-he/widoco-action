@@ -4,7 +4,8 @@ A github action to build docs for a knowledge graph, using [widoco](https://gith
 
 # Required input and output arguments.
 
-- input-file: './data/example.ttl'
+- file-input: '/github/workspace/example.ttl'
+- folder-output: '/github/workspace/public'
 - options: '-excludeProvenance -getOntologyMetadata' # the `-rewriteAll` &  `-uniteSections-` are applied by default
   
 # An example of how to use your action in a workflow.
@@ -21,16 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A conversion of ttl to html
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-          path: '.'
-      - run: git checkout HEAD^
       - name: convert
         id: convert
         uses: soilwise-he/widoco-action@v0.1
         with:
-          file-input: './data/example.ttl'
+          file-input: '/github/workspace/example.ttl'
+          folder-output: '/github/workspace/public'
           options: '-excludeProvenance -getOntologyMetadata'
 ```
+
+or see it in action at [soil-health actions](https://github.com/soilwise-he/soil-health/blob/main/.github/workflows/widoco.yml) -> <https://soilwise-he.github.io/soil-health>
